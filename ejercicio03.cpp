@@ -8,12 +8,35 @@ float suma(int a);
 int factorial(int b);
 
 int main(){
-    int n;
+    int n, control;
+    char rpt;
     float sum;
-    cout<<"Ingrese la cantidad de sumando: "; cin>>n;
+    do
+    {
+        cout<<"Ingrese la cantidad de sumando: "; cin>>n;
+        sum = suma(n);
+        cout<<"La sumatoria es: "<<sum<<endl;
 
-    sum = suma(n);
-    cout<<"La sumatoria es: "<<sum<<endl;
+        cout<<"¿Quieres calcular otra sumatoria? (S/N): "; cin>>rpt;
+
+        switch (rpt)
+        {
+        case 'S':
+        case 's':
+            control = 1;
+            break;
+        case 'N':
+        case 'n':
+            control = 0;
+            break;
+        default:
+            cout<<"Ingresaste una respuesta no valida, se cerrara el programa.";
+            control = 0;
+            break;
+        }
+    } while (control != 0);
+    
+
     return 0;
 }
 
